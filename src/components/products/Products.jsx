@@ -4,9 +4,9 @@ import { Header, Label } from 'semantic-ui-react';
 
 const Products = () => {
     return (
-        <Label>
+        <div className="main">
             
-        </Label>
+        </div>
     );
 }
 

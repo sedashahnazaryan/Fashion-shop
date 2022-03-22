@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getData } from "../../services/api";
+import { getData,getProducts } from "../../services/api";
 import CardItem from "./CardItem";
 import "./cards.css";
 
@@ -10,6 +10,10 @@ const Cards = () => {
     getData().then((param) => {
       setResult(param);
     });
+    //   getProducts().then((param) => {
+    //    setResult(param);
+    //  });
+    
   }, []);
 
   return (

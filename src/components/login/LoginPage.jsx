@@ -10,7 +10,7 @@ function LoginButton(){
 
 function LoginPage(){
     return(
-        <div style={{paddingTop:"100px"}}>
+        <div className="main" style={{paddingTop:"100px"}}>
 <LoginButton/>
         </div>
     )
