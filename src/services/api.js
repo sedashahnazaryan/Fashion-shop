@@ -23,7 +23,7 @@ export async function getOrders(user_id,token){
           },
           
         });
-        // debugger
+      
         return await response.json();
       } catch (error) {
         console.log("sxal", error);
@@ -51,4 +51,33 @@ export async function getOrders(user_id,token){
         console.log("sxalPost", error);
       }
     }
-         
+    export async function confirmOrder(user, product, token, option) {
+      const { sub: id, name, email, picture } = user;
+      const {address,paymentMethod,phone} = option;
+    
+      const body = {
+          date:new Date().valueOf(),
+        user: user,
+        product: product,
+        count: 1,
+        
+        orderStatus:paymentMethod==="cash" ? "UNPAID" : "PAID",
+        address:address,
+        phone:phone,
+    
+      };
+      try {
+        const response = await fetch(`${apiUrl}order`, {
+          method: "POST",      
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json;charset=utf-8",
+            user_id: user,
+          },
+          body: JSON.stringify(body),
+        });
+        return response.json();
+      } catch (error) {
+        console.log("sxalPost", error);
+      }
+    }

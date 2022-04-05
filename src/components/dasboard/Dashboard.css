@@ -1,3 +1,12 @@
 .main{
     margin-top: 200px;
 }
+.ui.container {
+    width: 90%;
+    margin-bottom: 5%;
+}
+.ui.inverted.table {
+    background: rgb(116, 106, 106);
+    color: rgba(255,255,255,.9);
+    border: none;
+}

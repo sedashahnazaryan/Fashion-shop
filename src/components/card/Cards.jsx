@@ -21,8 +21,9 @@ const Cards = () => {
       {result.map((item) => {
         return (
           <CardItem
+          item={item}
             key={item._id}
-            description={item.description}
+            description={item?.description.comment ||""}
             image={item.image}
             name={item.name}
             price={item.price}
