@@ -12,9 +12,9 @@
 
 }
 
-.ui.grid{
+.productItems.ui.grid{
     margin: 2vh;
-gap: 20px;
+    gap: 20px;
 }
 
 .ui.card>.image, .ui.cards>.card>.image {

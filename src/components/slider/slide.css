@@ -1,8 +1,7 @@
 
 #slide {
-	
-	display: flex;
 	position: relative;
+	display: flex;
 	height: 300px;
     min-height: 150px;
 	background-size: cover;
@@ -14,26 +13,29 @@
 
 
 img {
-	/* position: absolute; */
+	 /* position: absolute;  */
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	max-width: 100%;
-	/* max-height: 100%; */
+	max-width: 100%; 
+	 /* max-height: 100%; */
 	background-size: cover;
 	
 }
 .slideImg{
-	width: 70%;
+	width: 100%;
 	position: relative;
 }
 .slideImg img{
 	position: relative;
     top: 50%;
     transform: translateY(-50%);
-    width: 100%;
+    width: 200%;
 }
+
+
+
 .slideText{
 	width: 30%;
  }
@@ -43,7 +45,7 @@ img {
     transform: translateY(-50%);
     width: 100%
  }
- .ui.button{
+  #slide .ui.button{
 	background: none;
 	z-index: 100;
 	position: absolute;
@@ -53,6 +55,9 @@ img {
 	transition:0.5s ease;
 }
 
+.ui.button{
+	background: none;
+}
 .ui.button:hover{
 	color: blue;
 }

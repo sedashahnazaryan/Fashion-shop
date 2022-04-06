@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import slidesData from "../../services/slideData";
 import "./slide.css";
 import {Button, Icon} from "semantic-ui-react";

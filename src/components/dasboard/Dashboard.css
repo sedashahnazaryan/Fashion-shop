@@ -10,3 +10,11 @@
     color: rgba(255,255,255,.9);
     border: none;
 }
+
+.ui.green.button, .ui.green.buttons .button {
+    background: rgb(116, 106, 106);
+    color: #fff;
+    text-shadow: none;
+    background-image: none;
+    
+}

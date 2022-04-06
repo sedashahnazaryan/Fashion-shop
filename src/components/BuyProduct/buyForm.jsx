@@ -17,7 +17,7 @@ const options = [
     }
     return (
       <Form >
-      {/* <Form.Group widths='equal'> */}
+      
         <Form.Field
           id='form-input-control-full-name'
           control={Input}
@@ -61,10 +61,7 @@ const options = [
               readOnly
             />
           </Form.Field>
-      {/* </Form.Group> */}
-      
-      
-    </Form>
+      </Form>
     )
   }
   

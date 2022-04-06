@@ -11,6 +11,8 @@ export async function getProducts(){
 const response= await fetch (`${apiUrl}product`)
 const data =await response.json();
 return data;
+
+
 }
 
 export async function getOrders(user_id,token){
@@ -29,6 +31,37 @@ export async function getOrders(user_id,token){
         console.log("sxal", error);
       }
     }
+    export async function getAllOrders(user_id, token) {
+      try {
+          const response = await fetch(`${apiUrl}order/get-all`, {
+              method: "GET",
+              headers: {
+                  Authorization: `Bearer ${token}`,
+                  user_id: user_id
+              }
+          })
+          return await response.json();
+      } catch (error) {
+          console.log("wrong", error);
+      }
+    }
+    export async function getOrderByStatus(user_id, token, status) {
+      try {
+          const response = await fetch(`${apiUrl}order/user-order`, {
+              method: "GET",
+              headers: {
+                  Authorization: `Bearer ${token}`,
+                  user_id: user_id,
+                  status: status
+              }
+          })
+          return await response.json();
+      } catch (error) {
+          console.log("wrong", error);
+      }
+    }
+
+
     export async function authoriseUser(user, token) {
       const { sub: id, name, email, picture } = user;
       try {
@@ -48,7 +81,7 @@ export async function getOrders(user_id,token){
         });
         return response.json();
       } catch (error) {
-        console.log("sxalPost", error);
+        
       }
     }
     export async function confirmOrder(user, product, token, option) {
@@ -78,6 +111,22 @@ export async function getOrders(user_id,token){
         });
         return response.json();
       } catch (error) {
-        console.log("sxalPost", error);
+        
       }
     }
+        export async function confirmAddProduct(productObj, token) {
+
+          try {
+            const response = await fetch(`${apiUrl}product`, {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json;charset=utf-8",
+              },      
+              body: JSON.stringify(productObj),
+            });
+            return response.json();
+          } catch (error) {
+            
+          }
+        }
