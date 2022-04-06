@@ -1,18 +1,15 @@
 import { apiUrl } from "../config";
-// /import { useAuth0 } from "@auth0/auth0-react";
 
 
-// export async function getData(){
-//     const response=await fetch(`${apiUrl}product`);
-//     const data=await response.json();
-//     return data;
-// }
+
 export async function getProducts(){
+  try{
 const response= await fetch (`${apiUrl}product`)
 const data =await response.json();
 return data;
-
-
+}catch (error){
+console.log("wrong", error);
+}
 }
 
 export async function getOrders(user_id,token){
@@ -61,7 +58,23 @@ export async function getOrders(user_id,token){
       }
     }
 
-
+    export async function changeOrderStatus(user_id, token, order_id, status) {
+      console.log("order_id", order_id);
+      console.log("status", status);
+      try {
+        const response = await fetch(`${apiUrl}order/change-status/${order_id}/${status}`, {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            user_id: user_id
+          },
+        });
+        console.log("response" , response);
+        return await response.json();
+      } catch (error) {
+        console.log("wrong", error);
+      }
+    }
     export async function authoriseUser(user, token) {
       const { sub: id, name, email, picture } = user;
       try {
@@ -81,7 +94,7 @@ export async function getOrders(user_id,token){
         });
         return response.json();
       } catch (error) {
-        
+        console.log("sxalPost", error);
       }
     }
     export async function confirmOrder(user, product, token, option) {
@@ -111,13 +124,15 @@ export async function getOrders(user_id,token){
         });
         return response.json();
       } catch (error) {
-        
+        console.log("sxalPost", error);
       }
     }
         export async function confirmAddProduct(productObj, token) {
 
           try {
-            const response = await fetch(`${apiUrl}product`, {
+            const response = await fetch(`${apiUrl
+            
+            }product`, {
               method: "POST",
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -127,6 +142,6 @@ export async function getOrders(user_id,token){
             });
             return response.json();
           } catch (error) {
-            
+            console.log("sxalPost", error); 
           }
         }

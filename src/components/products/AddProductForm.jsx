@@ -24,7 +24,7 @@ function AddProductForm(changeOptions){
           type="number"
           label="Product Price"
           placeholder="0.0"
-          value={"productPrice"}
+          // value={"productPrice"}
           onChange = {(e)=>handleChange(e)}
         />
         <Form.Field

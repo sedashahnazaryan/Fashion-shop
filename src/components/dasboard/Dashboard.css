@@ -12,9 +12,13 @@
 }
 
 .ui.green.button, .ui.green.buttons .button {
-    background: rgb(116, 106, 106);
+    background: rgb(106, 97, 97);
     color: #fff;
     text-shadow: none;
     background-image: none;
     
+}
+.ui.grid{
+   color: #fff; 
+    background-color: rgba(62, 71, 80, 0.62)
 }

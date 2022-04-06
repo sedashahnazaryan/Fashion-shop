@@ -45,8 +45,8 @@ const NavBarMobile = (props) => {
         as={Menu}
         animation="overlay"
         icon="labeled"
-        inverted
         items={leftItems}
+        inverted
         vertical
         visible={visible}
         key={nanoid()}

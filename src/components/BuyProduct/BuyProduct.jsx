@@ -18,13 +18,11 @@ function BuyProduct({ productInfo, item }) {
   async function confirmAction() {
     try {
       const token = await getAccessTokenSilently();
-      console.log("options",options);
-      debugger;
       const userObj = {
-        id: user.sub,
-        email: user.email,
-        name: user.name,
-        picture: user.picture,
+      id: user.sub,
+      email: user.email,
+      name: user.name,
+      picture: user.picture,
       };
       const orderStatus = await confirmOrder(userObj, item, token, options);
       console.log(orderStatus);

@@ -3,7 +3,6 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home";
 import Products from "./components/products/Products";
-// import Slides from "./components/slider/Slides";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import LoginPage from "./components/login/LoginPage";
 import Dashboard from "./components/dasboard/Dashboard";
