@@ -3,5 +3,6 @@
 .ui.cards>.card>.image>img {
     width: 100px;
     background:none;
+    margin-top: 100px;
 }
 

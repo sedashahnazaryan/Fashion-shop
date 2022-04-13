@@ -5,21 +5,30 @@ import PendingTable from '../dataTable/PendingTable';
 
 
 
-const Tabs = ({pendingProducts, allProducts,changStatus}) => {
-    const panes = [
-      {
-        menuItem: "All Products",
-        render: () => <Tab.Pane>
-          {/* <DataTable list = {allProducts}/> */}
-          </Tab.Pane>
-      },
-      { menuItem: "Pending", render: () => <Tab.Pane>
-        <PendingTable  list={pendingProducts} changeStatus={changStatus}/>
-      </Tab.Pane> },
-    ];
-    return (
-      <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
-    );
-  };
+const Tabs = ({ pendingProducts, allProducts, changeStatus, uploadImg }) => {
+  console.log("pendingProducts",pendingProducts);
+  console.log("allProducts", allProducts);
+  const panes = [
+    {
+      menuItem: "All Products",
+      render: () => (
+        <Tab.Pane>
+          <DataTable list={allProducts} uploadImg={uploadImg} />
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: "Pending",
+      render: () => (
+        <Tab.Pane>
+          <PendingTable list={pendingProducts} changeStatus={changeStatus} />
+        </Tab.Pane>
+      ),
+    },
+  ];
+  return (
+    <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} />
+  );
+};
 
 export default Tabs;

@@ -3,14 +3,15 @@ import { apiUrl } from "../config";
 
 
 export async function getProducts(){
-  try{
+   try{
 const response= await fetch (`${apiUrl}product`)
 const data =await response.json();
 return data;
-}catch (error){
-console.log("wrong", error);
-}
-}
+  
+ }catch (error){
+ console.log("wrong", error);
+ }
+ }
 
 export async function getOrders(user_id,token){
     try {
@@ -44,7 +45,7 @@ export async function getOrders(user_id,token){
     }
     export async function getOrderByStatus(user_id, token, status) {
       try {
-          const response = await fetch(`${apiUrl}order/user-order`, {
+          const response = await fetch(`${apiUrl}order/order-status`, {
               method: "GET",
               headers: {
                   Authorization: `Bearer ${token}`,
@@ -97,6 +98,7 @@ export async function getOrders(user_id,token){
         console.log("sxalPost", error);
       }
     }
+    // by order
     export async function confirmOrder(user, product, token, option) {
       const { sub: id, name, email, picture } = user;
       const {address,paymentMethod,phone} = option;
@@ -118,7 +120,7 @@ export async function getOrders(user_id,token){
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json;charset=utf-8",
-            user_id: user,
+            userId: id,
           },
           body: JSON.stringify(body),
         });
@@ -127,21 +129,44 @@ export async function getOrders(user_id,token){
         console.log("sxalPost", error);
       }
     }
-        export async function confirmAddProduct(productObj, token) {
-
-          try {
-            const response = await fetch(`${apiUrl
-            
-            }product`, {
-              method: "POST",
-              headers: {
+    //new product-post
+    export async function confirmAddProduct(productObj,userId,token) {
+      try {
+        const response = await fetch(`${apiUrl}product`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json;charset=utf-8",
+            userId:userId,
+          },
+          body: JSON.stringify(productObj),
+        });
+        return response.json();
+      } catch (error) {
+        console.log("sxalPost", error);
+      }
+    }
+    export async function imgUpdate(productId, file,token,userId) {
+      console.log("imgUpdatefile", file);
+      const formData = new FormData();
+      
+      formData.append("image", file);
+      for(var key of formData.entries()){
+        console.log(key[0] + ", " + key[1]);
+      }
+        try {
+          const response = await fetch(`${apiUrl}image/add/${productId}`, {
+            method: "POST",
+            headers: {
                 Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json;charset=utf-8",
-              },      
-              body: JSON.stringify(productObj),
-            });
-            return response.json();
-          } catch (error) {
-            console.log("sxalPost", error); 
-          }
+               "content-type": "multipart/form-data",
+              userId:userId,
+            },
+            body: formData,
+          
+          });
+          return response.json();
+        } catch (error) {
+          console.log("sxalPost", error);
         }
+      }

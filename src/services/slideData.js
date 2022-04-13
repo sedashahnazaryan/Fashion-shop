@@ -9,23 +9,23 @@ function slidesData() {
     const slides = [
         {
           image: img1,
-          text: "We're gonna do 3 fundamental exercises.",
+           text: <h3>Thank You for Shoping With us!</h3>
         },
         {
           image: img2,
-          text: "Do 10 reps. Remember about full range of motion. Don't rush.",
+           text: "Do 10 reps. Remember about full range of motion. Don't rush.",
         },
         {
           image: img3,
-          text: "Squats are important. Remember to keep your back straight.",
+           text: "Squats are important. Remember to keep your back straight.",
         },
         {
           image: img4,
-          text: "Slightly bend your knees. Remember about full range of motion.",
+           text: "Slightly bend your knees. Remember about full range of motion.",
         },
         {
           image: img5,
-          text: "You made it, have a nice day and see you next time!",
+           text: "You made it, have a nice day and see you next time!",
         },
       ];
       return slides;

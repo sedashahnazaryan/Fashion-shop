@@ -3,9 +3,10 @@ import { createMedia } from "@artsy/fresnel";
 import {Container,Icon,Image,Menu,Sidebar,Dropdown,} from "semantic-ui-react";
 import { Outlet, Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "./Header.css";
 import { nanoid } from "nanoid";
+import logo from "../../img/img6.jpg";
 
              //     img dnelu
 // import mainLogo from'./logoWhite.png';
@@ -54,7 +55,8 @@ const NavBarMobile = (props) => {
       <Sidebar.Pusher dimmed={visible} onClick={onPusherClick}>
         <Menu fixed="top" inverted>
           <Menu.Item key={nanoid()}>
-            <Image size="mini" src="https://react.semantic-ui.com/logo.png" />
+          <Image as={Link} to="/" size="mini"  src={logo} className="logoIcon" />
+            {/* <Image size="mini" src="https://react.semantic-ui.com/logo.png" /> */}
           </Menu.Item>
           <Menu.Item onClick={onToggle} key={nanoid()}>
             <Icon name="sidebar" />
@@ -85,8 +87,9 @@ const NavBarDesktop = (props) => {
   return (
     <Menu fixed="top" inverted>
       <Menu.Item key={nanoid()}>
-        <Image size="mini"src="	https://freedesignfile.com/upload/2020/03/Fashion-shop-logo-vector.jpg"
-        />
+      <Image as={Link} to="/" size="mini" src={logo} className="logoIcon" />
+        {/* <Image size="mini"src="https://freedesignfile.com/upload/2020/03/Fashion-shop-logo-vector.jp" */}
+        {/* /> */}
       </Menu.Item>
 
       {leftItems.map((item, index) => (
@@ -107,41 +110,69 @@ const NavBarDesktop = (props) => {
   );
 };
 
-class NavBar extends React.Component {
-  state = {
-    visible: false,
+
+// class NavBar extends React.Component {
+//   state = {
+//     visible: false,
+//   };
+
+//   handlePusher = () => {
+//     const { visible } = this.state;
+
+//     if (visible) this.setState({ visible: false });
+//   };
+
+//   handleToggle = () => this.setState({ visible: !this.state.visible });
+
+//   render() {
+//     const { leftItems, rightItems } = this.props;
+//     const { visible } = this.state;
+
+//     return (
+//       <div className="customHeader">
+//         <Media at="mobile">
+//           <NavBarMobile
+//             leftItems={leftItems}
+//             onPusherClick={this.handlePusher}
+//             onToggle={this.handleToggle}
+//             rightItems={rightItems}
+//             visible={visible}
+//           ></NavBarMobile>
+//         </Media>
+
+//         <Media greaterThan="mobile">
+//           <NavBarDesktop leftItems={leftItems} rightItems={rightItems} />
+//         </Media>
+//       </div>
+//     );
+//   }
+// }
+
+function NavBar({ leftItems, rightItems }) {
+  const [visible, setVisible] = useState(false);
+
+  const handlePusher = () => {
+    if (visible) setVisible(false);
   };
+  const handleToggle = () => setVisible(!visible);
 
-  handlePusher = () => {
-    const { visible } = this.state;
+  return (
+    <div className="customHeader">
+      <Media at="mobile">
+        <NavBarMobile
+          leftItems={leftItems}
+          onPusherClick={handlePusher}
+          onToggle={handleToggle}
+          rightItems={rightItems}
+          visible={visible}
+        ></NavBarMobile>
+      </Media>
 
-    if (visible) this.setState({ visible: false });
-  };
-
-  handleToggle = () => this.setState({ visible: !this.state.visible });
-
-  render() {
-    const { leftItems, rightItems } = this.props;
-    const { visible } = this.state;
-
-    return (
-      <div className="customHeader">
-        <Media at="mobile">
-          <NavBarMobile
-            leftItems={leftItems}
-            onPusherClick={this.handlePusher}
-            onToggle={this.handleToggle}
-            rightItems={rightItems}
-            visible={visible}
-          ></NavBarMobile>
-        </Media>
-
-        <Media greaterThan="mobile">
-          <NavBarDesktop leftItems={leftItems} rightItems={rightItems} />
-        </Media>
-      </div>
-    );
-  }
+      <Media greaterThan="mobile">
+        <NavBarDesktop leftItems={leftItems} rightItems={rightItems} />
+      </Media>
+    </div>
+  );
 }
 
 const leftItems = [
@@ -149,7 +180,8 @@ const leftItems = [
   { as: Link, to: "/products", content: "Products", key: "products" },
 ];
 
-const rightItems = [];
+const rightItems = [
+];
 
 function Header() {
   const { user, isAuthenticated, logout } = useAuth0();
@@ -158,11 +190,12 @@ function Header() {
     rightItems.push({
       children: [
         <Image avatar spaced="right" src={user.picture} key={nanoid()}/>,
-        <Dropdown pointing="top left" key="userDropdown">
+        <Dropdown className="drop-down" pointing="top left" key="userDropdown">
           <Dropdown.Menu key="userDropdownMenu">
             <Dropdown.Item text={user.name} />
-            <Dropdown.Item as={Link} to="/dashboard" text="Dashboard" />
-            <Dropdown.Item onClick={logout} text="Sign out" icon="power" />
+            <Dropdown.Item as={Link} to="/dashboard" text="Dashboard"  key="userDashboard"/>
+            <Dropdown.Item onClick={logout} text="Sign out" icon="power"               key="userSignout"
+/>
           </Dropdown.Menu>
         </Dropdown>,
       ],

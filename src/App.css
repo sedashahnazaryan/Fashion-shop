@@ -6,6 +6,7 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+ 
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -39,7 +40,7 @@
 } 
 
 .main{
-  min-height: 800px;
+  min-height: 100%;
 
 }
 .ui.stackable.grid {

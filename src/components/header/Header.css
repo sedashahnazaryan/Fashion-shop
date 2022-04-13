@@ -1,15 +1,21 @@
 .ui.fixed.menu.top{
-    background-color: #BF6A96 ;  
+    background-color:hsla(44, 73%, 51%, 0.832); 
 }
-/* .ui.menu{
-    background-color: #BF6A96 ;
+/* .ui.menu{#BF6A96 MANUSHAKA
+    background-color: #ffeedd;#657b8bKAPUYT
 } */
 .customHeader,.pusher{
     height: 80px;
 }
-.ui.mini.image, .ui.mini.images .image, .ui.mini.images img, .ui.mini.images svg {
-    width: 55px;
+.ui.mini.image.logoIcon{
+    width: 50px;
     height: auto;
     font-size: .78571429rem;
     border-radius: 50%;
 }
+/* .drop-down{
+    z-index: -1;
+} */
+.pushable {
+    overflow-x: visible;
+    }

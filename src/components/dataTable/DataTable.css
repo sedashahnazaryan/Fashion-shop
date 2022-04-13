@@ -6,3 +6,10 @@
 .grid-table{
     height: 80px;
 }
+.grid-table>.row{
+    height: 120px;
+}
+.ui.image.product.icon{
+    width: auto;
+    height: 90px;
+}
