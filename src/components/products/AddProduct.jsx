@@ -1,7 +1,3 @@
-// function BuyProduct({ productInfo, item }) {
-//     const { error, isAuthenticated, isLoading, user, getAccessTokenSilently } =
-//       useAuth0();
-
 import React, { useState } from "react";
 import { Button, Form, Header, Image, Modal, Segment } from "semantic-ui-react";
 import { confirmAddProduct } from "../../services/api";
@@ -46,9 +42,7 @@ function AddProduct({setResponseInfo}) {
 
         const orderStatus = await confirmAddProduct(productObj,userId,token);
         if(orderStatus.httpStatus && orderStatus.httpStatus === "Ok"){
-         
-            
-          setResponseInfo(orderStatus.message);
+         setResponseInfo(orderStatus.message);
          }
         console.log(orderStatus);
     } catch (error) {

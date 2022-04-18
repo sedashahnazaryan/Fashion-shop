@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import productImg from "../../img/img1.jpg";
+import logo  from "../../img/logo 1.jpg";
 import "./DataTable.css";
 import {List,Image,Button,Grid,Segment,Dropdown,Item,Pagination} from "semantic-ui-react";
 import{useEffect, useState} from "react";
@@ -30,14 +30,15 @@ function DataTable({ list, uploadImg }) {
   
   console.log("result", list);
   function goToPage(e, data) {
-    console.log(data.activePage);
-    setStart(data.activePage);
-  }
+   console.log(data.activePage);
+    setStart(data.activePage * pageDevider - pageDevider);
+   }
   return (
     <>
-      {productsByPage &&
+       {productsByPage &&
         productsByPage.length > 0 &&
-        productsByPage.map((item) => {
+        productsByPage.map((item) => { 
+       
           return (
             <Grid className="grid-table" key={nanoid()}>
               <Grid.Row>
@@ -50,7 +51,7 @@ function DataTable({ list, uploadImg }) {
                       avatar
                       className="product-icon"
                       src={
-                        item.img[item.img.length - 1]?.imagePath || productImg
+                        item.img[item.img.length - 1]?.imagePath || logo
                       }
                     />
                   </Segment.Inline>
@@ -87,8 +88,10 @@ function DataTable({ list, uploadImg }) {
           totalPages={Math.ceil(result.length / pageDevider)}
         />
       </div>
+      
     </>
   );
+  
 }
 
 export default DataTable;

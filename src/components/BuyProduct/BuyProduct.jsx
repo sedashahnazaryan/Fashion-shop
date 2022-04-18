@@ -4,6 +4,7 @@ import BuyForm from "./buyForm";
 import { confirmOrder } from "../../services/api";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./BuyProduct.css";
+import logo  from "../../img/img.png";
 
 function BuyProduct({ productInfo, item }) {
   const { error, isAuthenticated, isLoading, user, getAccessTokenSilently } =
@@ -62,8 +63,9 @@ function BuyProduct({ productInfo, item }) {
         <Image
           size="medium"
           src={
-            image ||
-            "https://react.semantic-ui.com/images/avatar/large/rachel.png"
+            image?image.imagePath:logo
+            // image ||
+            // "https://react.semantic-ui.com/images/avatar/large/rachel.png"
           }
           wrapped
         />

@@ -1,6 +1,6 @@
 import {Form,Input, TextArea,Label} from "semantic-ui-react";
 
-function AddProductForm(changeOptions){
+function AddProductForm({changeOptions}){
     function handleChange(event){
         changeOptions({[event.target.name]:event.target.value});
         

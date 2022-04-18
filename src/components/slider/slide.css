@@ -33,7 +33,9 @@ img {
     top: 50%;
     transform: translateY(-50%);
     width: 200%;
-}
+	}
+
+
 /* .slideImg{
     z-index: -1;
 } */

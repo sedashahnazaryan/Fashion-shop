@@ -3,6 +3,8 @@ import "./cardItem.css";
 import { useAuth0} from "@auth0/auth0-react";
 import BuyProduct from '../BuyProduct/BuyProduct';
 import {Link} from "react-router-dom";
+import { useState } from "react";
+import logo  from "../../img/logo 1.jpg";
 
 function CardItem({description, image, name, price,item}){
     const{isAuthenticated}=useAuth0();
@@ -10,7 +12,7 @@ function CardItem({description, image, name, price,item}){
 
   return (
         <Card centered>
-          <Image src={image} wrapped ui={false} />
+          <Image src={image?image.imagePath:logo}wrapped ui ={false}/>
           <Card.Content>
             
             <Card.Header>{name}</Card.Header>

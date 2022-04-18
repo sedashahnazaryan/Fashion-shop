@@ -15,6 +15,7 @@ import DataTableForUsers from "../dataTable/DataTableForUsers";
 
    
 
+
 function Dashboard() {
   const { error, isAuthenticated, isLoading, user, getAccessTokenSilently } =
     useAuth0();
@@ -108,7 +109,7 @@ function Dashboard() {
       ) : (
         ""
       )}
-      {user &&
+      {user && 
       user[`${domainName}roles`] &&
       user[`${domainName}roles`].includes(ADMIN) ? (
         <>
@@ -118,6 +119,7 @@ function Dashboard() {
             pendingProducts={pendingProducts}
             allProducts={allProducts}
             changeStatus={changeStatus}
+            setResponseInfo={setResponseInfo} 
           />
         </>
       ) : (

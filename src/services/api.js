@@ -19,7 +19,7 @@ export async function getOrders(user_id,token){
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
-            user_id: user_id,
+            userId: user_id,
           },
           
         });
@@ -35,7 +35,7 @@ export async function getOrders(user_id,token){
               method: "GET",
               headers: {
                   Authorization: `Bearer ${token}`,
-                  user_id: user_id
+                  userId: user_id
               }
           })
           return await response.json();
@@ -49,7 +49,7 @@ export async function getOrders(user_id,token){
               method: "GET",
               headers: {
                   Authorization: `Bearer ${token}`,
-                  user_id: user_id,
+                  userId: user_id,
                   status: status
               }
           })
@@ -67,7 +67,7 @@ export async function getOrders(user_id,token){
           method: "PUT",
           headers: {
             Authorization: `Bearer ${token}`,
-            user_id: user_id
+            userId: user_id
           },
         });
         console.log("response" , response);
@@ -84,7 +84,7 @@ export async function getOrders(user_id,token){
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json;charset=utf-8",
-            user_id: user,
+            // user_id: user,
           },
           body: JSON.stringify({
             id,
@@ -158,8 +158,8 @@ export async function getOrders(user_id,token){
           const response = await fetch(`${apiUrl}image/add/${productId}`, {
             method: "POST",
             headers: {
-                Authorization: `Bearer ${token}`,
-               "content-type": "multipart/form-data",
+              //    Authorization: `Bearer ${token}`,
+              //  "content-type": "multipart/form-data",
               userId:userId,
             },
             body: formData,

@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useState,useEffect } from "react";
 import "./Header.css";
 import { nanoid } from "nanoid";
-import logo from "../../img/img6.jpg";
+import logo from "../../img/img.png";
 
              //     img dnelu
 // import mainLogo from'./logoWhite.png';

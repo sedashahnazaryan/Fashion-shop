@@ -9,10 +9,12 @@ const Home = () => {
    let countPageProduct=4;
     
     return (
+        
         <div className="home">
             <Slides slides={slidesData()} />
            <Cards pageDevider={countPageProduct}/>
         </div>
+        
     );
 }
 
