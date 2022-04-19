@@ -4,8 +4,9 @@ import Slides from "../slider/Slides";
  import { useAuth0 } from "@auth0/auth0-react";
 import slidesData from "../../services/slideData";
 
-// const {user, isAuthenticated} = useAuth0();
+
 const Home = () => {
+    const {user, isAuthenticated} = useAuth0(); 
    let countPageProduct=4;
     
     return (

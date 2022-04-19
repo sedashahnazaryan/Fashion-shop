@@ -7,8 +7,10 @@ import { useState,useEffect } from "react";
 import "./Header.css";
 import { nanoid } from "nanoid";
 import logo from "../../img/img.png";
+import { isUserExists, authoriseUser } from "../../services/api";
+          
 
-             //     img dnelu
+//     img dnelu
 // import mainLogo from'./logoWhite.png';
 //then in the render function of Jsx insert the mainLogo variable
 // class NavBar extends Component {
@@ -180,22 +182,23 @@ const leftItems = [
   { as: Link, to: "/products", content: "Products", key: "products" },
 ];
 
-const rightItems = [
+const rightItems = [{ as: Link, to: "/login", content: "Login", key: "login" }
 ];
 
 function Header() {
-  const { user, isAuthenticated, logout } = useAuth0();
+  const { user, isAuthenticated, logout,error, isLoading,getAccessTokenSilently } = useAuth0();
+  console.log("user",user)
   rightItems.length = 0;
-  if (isAuthenticated) {
+   if (isAuthenticated) {
     rightItems.push({
       children: [
         <Image avatar spaced="right" src={user.picture} key={nanoid()}/>,
-        <Dropdown className="drop-down" pointing="top left" key="userDropdown">
-          <Dropdown.Menu key="userDropdownMenu">
-            <Dropdown.Item text={user.name} />
+        <Dropdown className="drop-down" pointing="top left" text={user.name} key="userDropdown">
+          <Dropdown.Menu key="userDropdownMenu" id ="drop-down">
+            <Dropdown.Item text={user.name}key={user.name} />
             <Dropdown.Item as={Link} to="/dashboard" text="Dashboard"  key="userDashboard"/>
             <Dropdown.Item onClick={logout} text="Sign out" icon="power"               key="userSignout"
-/>
+           />
           </Dropdown.Menu>
         </Dropdown>,
       ],
@@ -205,6 +208,26 @@ function Header() {
       Link: { as: Link, to: "/login", content: "Login", key: "login" },
     });
   }
+  useEffect(() => {
+    (async () => {
+      if (
+        isAuthenticated &&
+        localStorage.getItem("autoriseUser") !== user.nickname
+      ) {
+        
+        let authorised;
+        const isExist = await isUserExists(user.sub);
+        console.log("isExists", isExist);
+        if (!isExist || (isExist.httpStatus === "OK" && !isExist.info.exists)) {
+          const token = await getAccessTokenSilently();
+          authorised = await authoriseUser(user, token);
+        }
+        if((authorised && authorised.httpStatus === "OK") || isExist.info.exists) {
+          localStorage.setItem("autoriseUser", user.nickname);
+        }
+      }
+    })();
+  }, [isAuthenticated]);
   return (
     <MediaContextProvider>
       <NavBar leftItems={leftItems} rightItems={rightItems}>

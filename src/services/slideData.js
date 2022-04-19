@@ -9,7 +9,7 @@ function slidesData() {
     const slides = [
         {
           image: img1,
-           text: <h3>Thank You for Shoping With us!</h3>
+           text: "Thank You for Shoping With us!"
         },
         {
           image: img2,

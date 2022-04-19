@@ -19,6 +19,7 @@
 
 .ui.card>.image, .ui.cards>.card>.image {
     width: 100px;
+    
     background:none;
 }
 .pagination-container{

@@ -46,13 +46,14 @@ const Cards = ({pageDevider}) => {
         })}
       
       <div className="pagination-container">
-        {/* semantic pagination */}
+     
         <Pagination
           defaultActivePage={1}
           secondary
           onPageChange={goToPage}
           totalPages={Math.ceil(result.length / pageDevider)}
         />
+      
       </div>
     </div>
   );

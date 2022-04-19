@@ -9,7 +9,7 @@ function AddProduct({setResponseInfo}) {
     useAuth0();
 
   
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const initFormData = {
     productName: "",
     productPrice: "",
@@ -32,9 +32,9 @@ function AddProduct({setResponseInfo}) {
         price: options.productPrice,
         currency: options.productCurrency,
         description: {
-          comment: options.productDescription,
+        comment: options.productDescription,
         },
-        stock: {
+          stock: {
           isAvailable: true,
           count: options.productCount,
         },

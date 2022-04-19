@@ -19,3 +19,12 @@
 .pushable {
     overflow-x: visible;
     }
+
+    .customHeader .pushable {
+        position: fixed;
+        z-index: 101;
+        margin: 0;
+        width: 100%;
+        height: auto;
+        overflow-x: visible;
+    }

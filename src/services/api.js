@@ -19,7 +19,7 @@ export async function getOrders(user_id,token){
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
-            userId: user_id,
+            user_id: user_id,  //ay stex poxel em arajiny taki gcov
           },
           
         });
@@ -31,11 +31,12 @@ export async function getOrders(user_id,token){
     }
     export async function getAllOrders(user_id, token) {
       try {
+        // console.log("user-id",user_id)
           const response = await fetch(`${apiUrl}order/get-all`, {
               method: "GET",
               headers: {
                   Authorization: `Bearer ${token}`,
-                  userId: user_id
+                  userId: user_id //stex el
               }
           })
           return await response.json();
@@ -45,11 +46,11 @@ export async function getOrders(user_id,token){
     }
     export async function getOrderByStatus(user_id, token, status) {
       try {
-          const response = await fetch(`${apiUrl}order/order-status`, {
+          const response = await fetch(`${apiUrl}order/user-order`, {
               method: "GET",
               headers: {
                   Authorization: `Bearer ${token}`,
-                  userId: user_id,
+                  user_id: user_id,
                   status: status
               }
           })
@@ -67,7 +68,7 @@ export async function getOrders(user_id,token){
           method: "PUT",
           headers: {
             Authorization: `Bearer ${token}`,
-            userId: user_id
+              user_id: user_id   //stex el
           },
         });
         console.log("response" , response);
@@ -104,7 +105,7 @@ export async function getOrders(user_id,token){
       const {address,paymentMethod,phone} = option;
     
       const body = {
-          date:new Date().valueOf(),
+        date:new Date().valueOf(),
         user: user,
         product: product,
         count: 1,
@@ -137,7 +138,7 @@ export async function getOrders(user_id,token){
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json;charset=utf-8",
-            userId:userId,
+            user_id:userId,
           },
           body: JSON.stringify(productObj),
         });
@@ -155,8 +156,8 @@ export async function getOrders(user_id,token){
         console.log(key[0] + ", " + key[1]);
       }
         try {
-          const response = await fetch(`${apiUrl}image/add/${productId}`, {
-            method: "POST",
+          const response = await fetch(`${apiUrl}image/add/${productId}`, 
+          { method: "POST",
             headers: {
               //    Authorization: `Bearer ${token}`,
               //  "content-type": "multipart/form-data",
@@ -169,4 +170,20 @@ export async function getOrders(user_id,token){
         } catch (error) {
           console.log("sxalPost", error);
         }
+      }
+        export async function isUserExists(userId, token) {
+   
+          try {
+            const response = await fetch(`${apiUrl}user/user-id`, {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json;charset=utf-8",
+                userId: userId,
+              }
+            });
+            return response.json();
+          } catch (error) {
+            console.log("sxalPost", error);
+          }
       }
