@@ -4,19 +4,19 @@
 /* .ui.menu{#BF6A96 MANUSHAKA
     background-color: #ffeedd;#657b8bKAPUYT
 } */
-.customHeader,.pusher{
-    height: 80px;
+/* .customHeader,.pusher{
+    height: 60px;
 }
 .ui.mini.image.logoIcon{
     width: 50px;
     height: auto;
     font-size: .78571429rem;
     border-radius: 50%;
-}
+} */
 /* .drop-down{
     z-index: -1;
 } */
-.pushable {
+/* .pushable {
     overflow-x: visible;
     }
 
@@ -28,3 +28,44 @@
         height: auto;
         overflow-x: visible;
     }
+
+    #left-pusher.pusher {
+  height: 100%;
+  }
+
+    #left-pusher .menu {
+  top: 60px;
+  width: 120px;
+  height: auto !important;
+  max-height: inherit;
+  background-color: hsla(44, 73%, 51%, 0.832);;
+   }
+
+     */
+
+    
+     .customHeader {
+        height: 60px;
+      }
+      
+      #left-pusher.pusher {
+        height: 100%;
+      }
+      
+      .customHeader .pushable {
+        position: fixed;
+        z-index: 101;
+        margin: 0;
+        width: 100%;
+        height: auto;
+        overflow-x: visible;
+      }
+      
+      #left-pusher .menu {
+        top: 60px;
+        width: 120px;
+        height: auto !important;
+        max-height: inherit;
+        background-color: hsla(44, 73%, 51%, 0.832);
+
+      }

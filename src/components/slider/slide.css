@@ -9,6 +9,8 @@
 	width: 100%;
 	flex-direction: row;
      margin-left: 150px;
+	 margin-top: 5px;
+
  }
 
 
@@ -96,24 +98,26 @@ img {
   @media screen and (max-width: 992px) {
 	#slide{
 		height: 200px;
-		
 	}
   }
 
   @media screen and (max-width: 768px) {
 	#slide{
 		height: 150px;
+		
 	}
 	#slide .slideDescription{
 		display: none;
 	}
 	#slide .slideImg{
 		width: 100%;
+		
 	}
   }
 
   @media screen and (max-width: 320px) {
 	#slide{
 		height: 50px;
+		
 	}
 }

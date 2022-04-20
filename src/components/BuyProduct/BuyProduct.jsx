@@ -1,10 +1,10 @@
-import React, { useState,useEffect} from "react";
-import { Button, Form, Header, Image, Modal, Segment } from "semantic-ui-react";
+import React, { useState, useEffect } from "react";
+import { Button, Header, Image, Modal, Segment } from "semantic-ui-react";
 import BuyForm from "./buyForm";
 import { confirmOrder } from "../../services/api";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./BuyProduct.css";
-import logo  from "../../img/img.png";
+import logo from "../../img/img.png";
 
 function BuyProduct({ productInfo, item }) {
   const { error, isAuthenticated, isLoading, user, getAccessTokenSilently } =
@@ -32,21 +32,31 @@ function BuyProduct({ productInfo, item }) {
     }
   }
   useEffect(() => {
+    resetOptions();
+  }, [open]);
+  useEffect(() => {
     let status = false;
-    for(let key in options){
-      console.log("options[key]",options[key]);
-      if(!options[key] ){
+    for (let key in options) {
+      console.log("options[key]", options[key]);
+      if (!options[key]) {
         status = true;
       }
     }
-      setDisable(status);
+    setDisable(status);
   }, [options]);
+  function resetOptions() {
+    for (let key in options) {
+      console.log(key, options[key]);
+      if (key != "paymentMethod") {
+        options[key] = "";
+      }
+    }
+  }
   function changeOptions(prop) {
     console.log("prop", prop);
     setOptions({ ...options, ...prop });
     console.log("options", options);
   }
-
   return (
     <Modal
       className="custom-modal"
@@ -60,19 +70,11 @@ function BuyProduct({ productInfo, item }) {
       }
     >
       <Modal.Content image>
-        <Image
-          size="medium"
-          src={
-            image?image.imagePath:logo
-            // image ||
-            // "https://react.semantic-ui.com/images/avatar/large/rachel.png"
-          }
-          wrapped
-        />
+        <Image size="medium" src={image ? image.imagePath : logo} wrapped />
         <Modal.Description>
           <Header>{name}</Header>
           <p>{description}</p>
-          <p>{price + "$"}</p>
+          <p>{price + "AMD"}</p>
         </Modal.Description>
 
         <BuyForm userName={user.name} changeOptions={changeOptions} />

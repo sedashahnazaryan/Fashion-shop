@@ -2,7 +2,7 @@
 
 .ui.cards>.card{
     display: flex;
-    background-color:white;
+    background-color:rgb(131, 133, 87);
     justify-content: center;
 
 }

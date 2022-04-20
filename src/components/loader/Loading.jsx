@@ -10,4 +10,4 @@ const Loading = () => (
   </Segment>
 )
 
-export default Loading
+export default Loading;

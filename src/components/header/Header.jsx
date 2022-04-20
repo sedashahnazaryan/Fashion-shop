@@ -44,21 +44,25 @@ const NavBarMobile = (props) => {
 
   return (
     <Sidebar.Pushable>
-      <Sidebar
-        as={Menu}
-        animation="overlay"
-        icon="labeled"
-        items={leftItems}
-        inverted
-        vertical
-        visible={visible}
+    <Sidebar.Pusher id="left-pusher" dimmed={visible} onClick={onPusherClick}>
+        <Sidebar
         key={nanoid()}
-      />
-      <Sidebar.Pusher dimmed={visible} onClick={onPusherClick}>
-        <Menu fixed="top" inverted>
+          as={Menu}
+          animation="overlay"
+          icon="labeled"
+          inverted
+          items={leftItems}
+          vertical
+          visible={visible}
+        />
+    </Sidebar.Pusher>
+
+    <Sidebar.Pusher
+    >
+     <Menu fixed="top" inverted>
           <Menu.Item key={nanoid()}>
           <Image as={Link} to="/" size="mini"  src={logo} className="logoIcon" />
-            {/* <Image size="mini" src="https://react.semantic-ui.com/logo.png" /> */}
+  
           </Menu.Item>
           <Menu.Item onClick={onToggle} key={nanoid()}>
             <Icon name="sidebar" />
@@ -113,42 +117,7 @@ const NavBarDesktop = (props) => {
 };
 
 
-// class NavBar extends React.Component {
-//   state = {
-//     visible: false,
-//   };
 
-//   handlePusher = () => {
-//     const { visible } = this.state;
-
-//     if (visible) this.setState({ visible: false });
-//   };
-
-//   handleToggle = () => this.setState({ visible: !this.state.visible });
-
-//   render() {
-//     const { leftItems, rightItems } = this.props;
-//     const { visible } = this.state;
-
-//     return (
-//       <div className="customHeader">
-//         <Media at="mobile">
-//           <NavBarMobile
-//             leftItems={leftItems}
-//             onPusherClick={this.handlePusher}
-//             onToggle={this.handleToggle}
-//             rightItems={rightItems}
-//             visible={visible}
-//           ></NavBarMobile>
-//         </Media>
-
-//         <Media greaterThan="mobile">
-//           <NavBarDesktop leftItems={leftItems} rightItems={rightItems} />
-//         </Media>
-//       </div>
-//     );
-//   }
-// }
 
 function NavBar({ leftItems, rightItems }) {
   const [visible, setVisible] = useState(false);
