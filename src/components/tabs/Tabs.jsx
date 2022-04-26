@@ -5,7 +5,7 @@ import PendingTable from '../dataTable/PendingTable';
 
 
 
-const Tabs = ({ pendingProducts, allProducts, changeStatus, uploadImg,pendingOrders }) => {
+const Tabs = ({ pendingProducts, allProducts, changeStatus, uploadImg,pendingOrders,setResponsInfo }) => {
   console.log("pendingProducts",pendingProducts);
   // console.log("allProducts", allProducts);
   const panes = [

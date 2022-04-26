@@ -1,10 +1,18 @@
 import { nanoid } from "nanoid";
-import logo  from "../../img/logo 1.jpg";
+import logo from "../../img/logo 1.jpg";
 import "./DataTable.css";
-import {List,Image,Button,Grid,Segment,Dropdown,Item,Pagination,Icon} from "semantic-ui-react";
-import{useEffect, useState} from "react";
-
-
+import {
+  List,
+  Image,
+  Button,
+  Grid,
+  Segment,
+  Dropdown,
+  Item,
+  Pagination,
+  Icon,
+} from "semantic-ui-react";
+import { useEffect, useState, useRef } from "react";
 
 function DataTable({ list, uploadImg }) {
   const [imgFile, setImgFile] = useState();
@@ -12,9 +20,12 @@ function DataTable({ list, uploadImg }) {
   const [start, setStart] = useState(0);
   const [result, setResult] = useState([]);
   const pageDevider = 5;
+  const selectidId = useRef(null);
 
-  function onChange(e) {
-    console.log(e.target.files);
+  function onChange(e,id) {
+    selectidId.current=id;
+
+    
     setImgFile(e.target.files[0]);
   }
   useEffect(() => {
@@ -22,26 +33,27 @@ function DataTable({ list, uploadImg }) {
   }, [list]);
 
   useEffect(() => {
-    console.log(imgFile);
+    
   }, [imgFile]);
+
   useEffect(() => {
+    selectidId.current = null;
     if (result && result.length > 0)
       setProductsByPage(result.slice(start, start + pageDevider));
   }, [start, result]);
 
-  console.log("result", list);
+  
   function goToPage(e, data) {
-    console.log(data.activePage);
+  
     setStart(data.activePage * pageDevider - pageDevider);
   }
   return (
     <div>
-    {list &&
-      list.length > 0 &&
-      list.map((item) => {
-        console.log(item);
-        return (
-          <>
+      {list &&
+        list.length > 0 &&
+        list.map((item) => {
+          console.log(item);
+          return (
             <Grid className="grid-table" key={nanoid()}>
               <Grid.Row>
                 <Grid.Column width="2">
@@ -77,18 +89,43 @@ function DataTable({ list, uploadImg }) {
                           uploadImg(imgFile, item.id);
                         }}
                       >
-                        <label className="upload" htmlFor ="file-input">
-                        <Icon className="iconUpload" name="images" />
+                        {/* <label className="upload" htmlFor="file-input">
+                          <Icon className="iconUpload" name="images" />
                         </label>
                         <input
-                          id = "file-input"
+                          id="file-input"
                           className="upload imgBtn"
                           type="file"
-                          onChange={(e)=>onChange(e)}
+                          onChange={(e) => onChange(e)}
                         ></input>
-                       
+
                         <button type="submit" className="upload">
-                        <Icon className="upload iconUpload" name="upload" />
+                          <Icon className="upload iconUpload" name="upload" /> */}
+                        <label
+                        htmlFor={`file-input-${item.id}`}
+                        className="img-icon"
+                      >
+                        <Icon
+                          className="btn-icon"
+                          color="green"
+                          name="images"
+                        />
+                      </label>
+                      <input
+                        type="file"
+                        id={`file-input-${item.id}`}
+                        onChange={(e) => {
+                          onChange(e, item.id);
+                        }}
+                      />
+                      <button className="btn-upload" type="submit">
+                        <Icon
+                          className="btn-icon"
+                          name="upload"
+                          color={
+                            selectidId.current === item.id ? "green" : "grey"
+                          }
+                       />
                         </button>
                       </form>
                     </List.Content>
@@ -96,22 +133,19 @@ function DataTable({ list, uploadImg }) {
                 </Grid.Column>
               </Grid.Row>
             </Grid>
-          </>
-        );
-      })}
-       <div className="pagination-container">
-         {/* semantic pagination */}
-         <Pagination
+          );
+        })}
+      <div className="pagination-container">
+        {/* semantic pagination */}
+        <Pagination
           defaultActivePage={1}
-         secondary
+          secondary
           onPageChange={goToPage}
-         totalPages={Math.ceil(result.length / pageDevider)}
-         />
+          totalPages={Math.ceil(result.length / pageDevider)}
+        />
       </div>
-  </div>
-);
+    </div>
+  );
 }
 
-
 export default DataTable;
-

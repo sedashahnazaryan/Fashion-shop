@@ -1,5 +1,9 @@
-.footer{
+/* .ui.footer{
    background-color: rgb(181, 181, 50); 
 
    
+} */
+.ui.inverted.vertical.segment{
+   /* background-color:  hsla(44, 73%, 51%, 0.832) ; */
+   background-color:#da2134fe
 }

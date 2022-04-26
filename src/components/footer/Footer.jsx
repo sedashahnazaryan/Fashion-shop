@@ -1,46 +1,94 @@
-import {Header,Container, Grid, List, Segment} from "semantic-ui-react";
+import {
+  Header,
+  Container,
+  Grid,
+  List,
+  Segment,
+  Icon,
+} from "semantic-ui-react";
 import "./Footer.css";
 
+// function Footer() {
+//     return (
+//         <div className="footer">
+//              <Segment inverted vertical style={{ padding: '5em 0em' }}>
+//       <Container>
+//         <Grid divided inverted stackable>
+//           <Grid.Row>
+//             <Grid.Column width={3}>
+//               <Header inverted as='h4' content='About' />
+//               <List link inverted>
+//                 <List.Item as='a'></List.Item>
+//                 <List.Item as='a'></List.Item>
+//                 <List.Item as='a'></List.Item>
+//                 <List.Item as='a'></List.Item>
+//               </List>
+//             </Grid.Column>
+//             <Grid.Column width={3}>
+//               <Header inverted as='h4' content='Services' />
+//               <List link inverted>
+//                 <List.Item as='a'></List.Item>
+//                 <List.Item as='a'></List.Item>
+//                 <List.Item as='a'></List.Item>
+//                 <List.Item as='a'></List.Item>
+//               </List>
+//             </Grid.Column>
+//             <Grid.Column width={7}>
+//               <Header as='h4' inverted>
+//                 Footer Header
+//               </Header>
+//               <p>
+
+//               </p>
+//             </Grid.Column>
+//           </Grid.Row>
+//         </Grid>
+//       </Container>
+//     </Segment>
+//         </div>
+//     )
+// }
 
 function Footer() {
-    return (
-        <div className="footer">
-             <Segment inverted vertical style={{ padding: '5em 0em' }}>
-      <Container>
-        <Grid divided inverted stackable>
-          <Grid.Row>
+  return (
+    <div className="footer">
+      <Segment inverted vertical style={{ padding: "5em 0em" }}>
+        <Container>
+          <Grid divided inverted stackable>
+            <Grid.Row>
+             
             <Grid.Column width={3}>
-              <Header inverted as='h4' content='About' />
-              <List link inverted>
-                <List.Item as='a'>Sitemap</List.Item>
-                <List.Item as='a'>Contact Us</List.Item>
-                <List.Item as='a'>Religious Ceremonies</List.Item>
-                <List.Item as='a'>Gazebo Plans</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Header inverted as='h4' content='Services' />
-              <List link inverted>
-                <List.Item as='a'>Banana Pre-Order</List.Item>
-                <List.Item as='a'>DNA FAQ</List.Item>
-                <List.Item as='a'>How To Access</List.Item>
-                <List.Item as='a'>Favorite X-Men</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column width={7}>
-              <Header as='h4' inverted>
-                Footer Header
-              </Header>
-              <p>
-                Extra space for a call to action inside the footer that could help re-engage users.
-              </p>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
-    </Segment>
-        </div>
-    )
+                <Header inverted as="h4" content="About"/>
+                {/* <List.Item as='li'> */}
+          <a href='https://www.aravot.am/2016/06/30/710023/'>Click here</a>
+        {/* </List.Item> */}
+              </Grid.Column>
+
+              <Grid.Column width={3}>
+                <Header inverted as="h4" content="Home" />
+              </Grid.Column>
+              <Grid.Column width={3}>
+                <Header inverted as="h4" content="Products" />
+              </Grid.Column>
+
+              <Grid.Column width={3}>
+                <Header as="h4" inverted>
+                  <Icon name="facebook" />
+                  <Icon name="instagram" />
+                  <Icon name="twitter square" />
+                </Header>
+              </Grid.Column>
+
+              <Grid.Column width={3}>
+                <Icon name="phone square" />
+                +374 98313871
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
+      </Segment>
+    </div>
+  );
 }
 
- export default Footer;
+export default Footer;

@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import "./BuyProduct.css";
 import logo from "../../img/img.png";
 
-function BuyProduct({ productInfo, item }) {
+function BuyProduct({ productInfo, item,setResponseInfo }) {
   const { error, isAuthenticated, isLoading, user, getAccessTokenSilently } =
     useAuth0();
 
@@ -26,6 +26,7 @@ function BuyProduct({ productInfo, item }) {
         picture: user.picture,
       };
       const orderStatus = await confirmOrder(userObj, item, token, options);
+      setResponseInfo("comfirmOrder")
       console.log(orderStatus);
     } catch (error) {
       console.log(error);

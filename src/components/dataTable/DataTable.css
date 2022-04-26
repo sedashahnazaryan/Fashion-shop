@@ -15,7 +15,8 @@
 } */
 .ui.image.product-icon{
     width: auto;
-    height: 90px;
+    height: 70px;
+    border-radius: 20%;
      
     }
 
@@ -92,4 +93,17 @@ input[type=file] {
     width: 100%;
     display: flex;
     align-items: center;
+}
+.ui.green.button {
+    margin-left: auto;
+    margin-top: 10%;
+   background-color: rgb(218 34 53)
+}
+.ui.bottom.attached.segment.active.tab{
+    border-block-color: red;
+    border-block-end-color: red;
+    border-block-start-color: red;
+    border-inline-end-color: red;
+    border-inline-start-color: red;
+    border-bottom-color: red
 }

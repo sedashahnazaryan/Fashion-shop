@@ -59,4 +59,11 @@
   margin-bottom: 0;
   padding-bottom: 0;
   background-color: #9b9393} */
+  p:last-child {
+    /* margin-left: 50%; */
+    color: rgb(69, 64, 64);
+    font-style: italic;
+    font-weight: 800;
+    font-size: medium;
+  }
   

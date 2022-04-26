@@ -2,69 +2,72 @@
 #slide {
 	position: relative;
 	display: flex;
-	height: 350px;
+	height: 450px;
     min-height: 150px;
-	background-size: cover;
+	background-size:cover;
 	overflow: hidden;
 	width: 100%;
 	flex-direction: row;
      margin-left: 150px;
-	 margin-top: 5px;
+	 margin-top: 1px;
 
  }
 
 
-img {
-	 /* position: absolute;  */
+img { 
+	
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	max-width: 100%; 
-	 /* max-height: 100%; */
+
 	background-size: cover;
 	
 }
 .slideImg{
-	width: 100%;
+	width: 400%;
 	height: 100%;
 	position: relative;
+	
 }
 .slideImg img{
 	position: relative;
     top: 50%;
     transform: translateY(-50%);
-    width: 200%;
-	}
 
-
-/* .slideImg{
-    z-index: -1;
+}
+/* .slide.slideImg.slideText{
+	color: red;
 } */
 
+ .slideText{ 
+	/* width: 30%; */
+	 margin-bottom: 300px; 
+	 margin-right: 300px;
+ /* background: red; */
+	padding: 30px;  
+     
+ } 
 
-.slideText{
-	width: 30%;
-	margin-bottom: 300px;
-	margin-right: 200px;
- }
-
- .slideText{
-	position: relative;
+  .slideText{
+    position: relative;
     top: 50%;
-    transform: translateY(-50%);
-    width: 100%
+    transform: translateY(-70%);
+    width: 200%
 	
 
  }
+ 
   #slide .ui.button{
 	background: none;
 	z-index: 100;
 	position: absolute;
 	transform: translateY(-50%);
 	top: 50%;
-	color: blueviolet;
+	color: rgb(187, 28, 28);
 	transition:0.5s ease;
+	
 }
 
 .ui.button{

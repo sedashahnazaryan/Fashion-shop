@@ -138,7 +138,7 @@ export async function getOrders(user_id,token){
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json;charset=utf-8",
-            user_id:userId,
+            userId:userId,
           },
           body: JSON.stringify(productObj),
         });

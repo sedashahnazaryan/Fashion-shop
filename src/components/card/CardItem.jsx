@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import { useState } from "react";
 import logo  from "../../img/logo 1.jpg";
 
-function CardItem({description, image, name, price,item}){
+function CardItem({description, image, name, price,item,setResponseInfo}){
     const{isAuthenticated}=useAuth0();
 
 
@@ -26,7 +26,8 @@ function CardItem({description, image, name, price,item}){
           <Card.Content extra className='buy-info'>
           {price}
           {isAuthenticated ? (
-          <BuyProduct item={item} productInfo={{description,image,name,price}}/>
+          <BuyProduct item={item} productInfo={{description,image,name,price}}
+          setResponseInfo={setResponseInfo}/>
         ) : (
           <Button as={Link} to="/login" color='green'inverted floated='right' >
             BUY

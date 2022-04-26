@@ -39,7 +39,7 @@ function AddProduct({setResponseInfo}) {
           count: options.productCount,
         },
       };
-
+console.log("userId",userId)
         const orderStatus = await confirmAddProduct(productObj,userId,token);
         if(orderStatus.httpStatus && orderStatus.httpStatus === "Ok"){
          setResponseInfo(orderStatus.message);
