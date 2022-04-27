@@ -11,7 +11,7 @@ const Home = () => {
   function handleDismiss() {
     setResponseInfo("");
   }
-  const { user, isAuthenticated } = useAuth0();
+  // const { user, isAuthenticated } = useAuth0();
   let countPageProduct = 4;
 
   return (

@@ -89,7 +89,7 @@ function Dashboard() {
         order_id,
         status
       );
-      orderShow();//I put this function call
+      orderShow();
       console.log("changeResult", changeResult);
     } catch (error) {
       console.log("sxal es arel");

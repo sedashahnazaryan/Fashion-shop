@@ -15,7 +15,7 @@ function LoginPage(){
    
 
 
-        //    <img  src={mainLogo} style={nbStyle.logo} alt="fireSpot"/>
+            // <img  src={mainLogo} style={nbStyle.logo} alt="fireSpot"/>
 
         >
 <LoginButton/>

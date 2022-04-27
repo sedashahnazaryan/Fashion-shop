@@ -26,7 +26,7 @@ img {
 	
 }
 .slideImg{
-	width: 400%;
+	width: 200%;
 	height: 100%;
 	position: relative;
 	
@@ -54,7 +54,7 @@ img {
     position: relative;
     top: 50%;
     transform: translateY(-70%);
-    width: 200%
+    width: 100%
 	
 
  }
@@ -106,10 +106,10 @@ img {
 
   @media screen and (max-width: 768px) {
 	#slide{
-		height: 150px;
+		height: 50px;
 		
 	}
-	#slide .slideDescription{
+	#slide .slideText{
 		display: none;
 	}
 	#slide .slideImg{
@@ -123,4 +123,5 @@ img {
 		height: 50px;
 		
 	}
-}
+  }
+  

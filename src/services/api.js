@@ -46,7 +46,7 @@ export async function getOrders(user_id,token){
     }
     export async function getOrderByStatus(user_id, token, status) {
       try {
-          const response = await fetch(`${apiUrl}order/user-order`, {
+          const response = await fetch(`${apiUrl}order/order-status`, {
               method: "GET",
               headers: {
                   Authorization: `Bearer ${token}`,

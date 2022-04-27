@@ -30,7 +30,7 @@ const { Media, MediaContextProvider } = AppMedia;
 const NavBarMobile = (props) => {
   const { children, leftItems, onPusherClick, onToggle, rightItems, visible } =
     props;
-
+console.log("rightItems",rightItems)
   return (
     <Sidebar.Pushable>
       <Sidebar.Pusher id="left-pusher" dimmed={visible} onClick={onPusherClick}>
@@ -63,6 +63,7 @@ const NavBarMobile = (props) => {
 
           <Menu.Menu position="right" key="rightItems">
             {rightItems.map((item, index) => {
+              console.log("item",item)
               if (item.children) {
                 return (
                   <Menu.Item key={`rightParams${index}`}>
@@ -70,7 +71,7 @@ const NavBarMobile = (props) => {
                   </Menu.Item>
                 );
               }
-              return <Menu.Item key={index} {...item.link} />;
+              return <Menu.Item key={index} {...item.Link} />;
             })}
           </Menu.Menu>
         </Menu>
@@ -87,8 +88,6 @@ const NavBarDesktop = (props) => {
     <Menu fixed="top" inverted>
       <Menu.Item key={nanoid()}>
         <Image as={Link} to="/" size="mini" src={logo} className="logoIcon" />
-        {/* <Image size="mini"src="https://freedesignfile.com/upload/2020/03/Fashion-shop-logo-vector.jp" */}
-        {/* /> */}
       </Menu.Item>
 
       {leftItems.map((item, index) => (

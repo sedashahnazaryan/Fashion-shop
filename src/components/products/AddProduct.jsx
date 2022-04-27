@@ -41,8 +41,8 @@ function AddProduct({setResponseInfo}) {
       };
 console.log("userId",userId)
         const orderStatus = await confirmAddProduct(productObj,userId,token);
-        if(orderStatus.httpStatus && orderStatus.httpStatus === "Ok"){
-         setResponseInfo(orderStatus.message);
+        if(orderStatus.httpStatus && orderStatus.httpStatus === "OK"){
+          setResponseInfo(orderStatus.message);
          }
         console.log(orderStatus);
     } catch (error) {

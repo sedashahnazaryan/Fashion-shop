@@ -26,7 +26,7 @@ function slidesData() {
         },
         {
           image: img5,
-             text:"At the heart of the word ornament is the root ard, which means dz, regulation. Jewelry had its meaning. You could tell from the crowd who the king was because of the jewelry he wore. Socially acceptable values expressed their sacred mysteries through jewelry.",
+             text:"At the heart of the word ornament is the root ard, which means, regulation. Jewelry had its meaning. You could tell from the crowd who the king was because of the jewelry he wore. Socially acceptable values expressed their sacred mysteries through jewelry.",
         },
         {
           image:img6,
